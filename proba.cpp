@@ -65,8 +65,8 @@ int main(int ac, char **av)
 				return (0);
 			}
 			if (followed && b != i - 1)
-				successfull_draws = successfull_b;
-			else if (output)
+				successfull_draws = successfull_b - 1;
+			if (output)
 				std::cout << "Got a successfull draw on " << i << " tries " << successfull_draws << " draws remain" << std::endl;
 			b = i;
 		}
