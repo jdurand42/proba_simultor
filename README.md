@@ -10,6 +10,10 @@ Parameters:
 
 expemple:
 ./proba 1 2 -> simulate 1 chance over 2;
+
 ./proba 1 2 10 -> simulate 1 chance over 2 and stop when it got 10 successfull_draws;
-./proba 1 2 10 anything -> simulate 1 chance over 2 and stop when it got 10 consecutive successfull_draws
+
+./proba 1 2 10 on -> same as precedent but shows input
+
+./proba 1 2 10 off yes -> simulate 1 chance over 2 and stop when it got 10 consecutive successfull_draws with output off
 
