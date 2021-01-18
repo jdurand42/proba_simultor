@@ -3,6 +3,7 @@
 #include <cmath>
 #include <cstdlib>
 #include <ctime>
+#include <climits>
 
 static void man()
 {
@@ -32,7 +33,6 @@ int main(int ac, char **av)
 	}
 	if (ac > 4 && std::string(av[4]) == "on")
 	{
-		std::cout << "lol" << std::endl;
 		output = 1;
 	}
 	if (ac > 5)
@@ -59,21 +59,21 @@ int main(int ac, char **av)
 		if (rand <= chances)
 		{
 			successfull_draws--;
+			if (followed && b != i - 1)
+				successfull_draws = successfull_b - 1;
+			if (output)
+				std::cout << "Got a successfull draw on " << i << " tries " << successfull_draws << " draws remain" << std::endl;
 			if (!successfull_draws)
 			{
 				std::cout << "Got a successfull draw on " << i << " tries" << std::endl;
 				return (0);
 			}
-			if (followed && b != i - 1)
-				successfull_draws = successfull_b - 1;
-			if (output)
-				std::cout << "Got a successfull draw on " << i << " tries " << successfull_draws << " draws remain" << std::endl;
 			b = i;
 		}
 		//else
 		//	std::cout << "Missed: " << i << "tries" << std::endl;
 		i++;
-		if (i == 0)
+		if (i >= ULONG_MAX)
 		{
 			// untested, might while(1) indefinitly
 			std::cout << "Aborting, number of iterations higher than LONG_MAX" << std::endl;
